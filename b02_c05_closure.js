@@ -105,24 +105,44 @@
 
 // ========== PT 10 ==============
 
-function CoolModule(){
+// function CoolModule(){
+//   var something = "cool";
+//   var another = [1,2,3,4];
+
+//   function doSomething(){
+//     console.log(something);
+//   }
+
+//   function doAnother(){
+//     console.log(another.join(" ! "));
+//   }
+
+//   return {
+//     doSomething: doSomething,
+//     doAnother: doAnother
+//   }
+// }
+
+// var foo = CoolModule();
+// foo.doSomething();
+// foo.doAnother();
+
+// ========== PT 11 ==============
+
+var foo = (function CoolModel(){
   var something = "cool";
   var another = [1,2,3,4];
-
   function doSomething(){
     console.log(something);
   }
-
   function doAnother(){
     console.log(another.join(" ! "));
   }
-
   return {
     doSomething: doSomething,
     doAnother: doAnother
   }
-}
+})();
 
-var foo = CoolModule();
-foo.doSomething();
-foo.doAnother();
+foo.doAnother()
+foo.doSomething()
