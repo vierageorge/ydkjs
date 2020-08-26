@@ -149,17 +149,41 @@
 
 // ========== PT 12 ==============
 
-function CoolModule(id){
-  function identify(){
-    console.log(id);
-  }
-  return {
-    identify: identify
-  }
-}
+// function CoolModule(id){
+//   function identify(){
+//     console.log(id);
+//   }
+//   return {
+//     identify: identify
+//   }
+// }
 
-var foo1 = CoolModule("I'm Foo#1")
-var foo2 = CoolModule("I'm Foo#2")
+// var foo1 = CoolModule("I'm Foo#1")
+// var foo2 = CoolModule("I'm Foo#2")
 
-foo1.identify()
-foo2.identify()
+// foo1.identify()
+// foo2.identify()
+
+// ========== PT 13 ==============
+
+var foo = (function CoolModule(id){
+  function identify1(){
+    console.log(id.toLowerCase());
+  }
+  function identify2(){
+    console.log(id.toUpperCase());
+  }
+  function change(){
+    publicAPI.identify = identify2;
+    console.log("Changing identify!");
+  }
+  var publicAPI = {
+    change: change,
+    identify: identify1
+  }
+  return publicAPI;
+})("this is another test");
+
+foo.identify();
+foo.change();
+foo.identify();
